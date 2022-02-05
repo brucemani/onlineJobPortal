@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>All Company</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/index.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+            background-color: lightsteelblue;
+        }
+        .jumbotron{
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+<div th:replace="~{html/fragements/admin::navigate}"></div>
+<div class="container">
+    <div class="jumbotron">
+        <table class="table table-bordered table-hover">
+            <thead class="table tableSubHeadingColor bg-info">
+            Total:&nbsp;<tr colspan="6" th:text="${allCompany.size()}" style="text-align:left"></tr>
+                <th scope="col">ID</th>
+                <th scope="col">COMPANY NAME</th>
+                <th scope="col">WEB</th>
+                <th scope="col">LOCATION</th>
+                <th scope="col">EMAIL</th>
+                <th scope="col">ACTIONS</th>
+            </thead>
+            <tbody>
+            <tr th:if="${allCompany.size()==0}">
+                <td colspan="6">No Company</td>
+            </tr>
+            <tr th:each="list:${allCompany}">
+                <td th:text="${list.getId()}"></td>
+                <td th:text="${list.CName}"></td>
+                <td th:text="${list.getCWeb()}"></td>
+                <td th:text="${list.getCLocation()}"></td>
+                <td th:text="${list.getCMail()}"></td>
+                <td rowspan="5">
+                    <a th:href="@{/admin/com/update/{id}(id=${list.getId()})}" class="btn btn-primary btn-sm">Update</a>
+                    <a th:href="@{/admin/com/delete/{id}(id=${list.getId()})}" class="btn btn-danger btn-sm">Delete</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>

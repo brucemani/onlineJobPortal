@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Applicant Register</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../../static/css/candidate.css"/>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+    <script type="text/javascript" src="../../static/js/validate.js"></script>
+    <link rel="stylesheet" href="/static/css/index.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body style="background-color: #008cba">
+<div th:replace="~{html/fragements/normal::navigate}"></div>
+<div class="container" style="background-color: #008cba">
+    <div class="content">
+        <img src="/static/images/search.jpg" alt="header-image" class="cld-responsive">
+        <h3 class="form-title">Register Here</h3>
+        <form th:method="POST" th:oject="${obj}" th:action="@{/saveApplicant}">
+            <div class="beside">
+                <label for="fname"></label><input type="text" th:field="*{names.FName}" placeholder="FIRST NAME" id="fname">
+                <label for="lname"></label><input type="text" th:field="*{names.LName}" placeholder="LAST NAME" id="lname">
+            </div>
+            <div class="beside">
+                <label for="phone"></label><input type="text" th:field="*{obj.phone}" placeholder="PHONE NUMBER" id="phone">
+                <label for="gender"></label><select id="gender" th:field="*{obj.gender}">
+                    <option th:value="GENDER">GENDER</option>
+                    <option th:value="Male">MALE</option>
+                    <option th:value="Female">FEMALE</option>
+                    <option th:value="Others">OTHERS</option>
+                </select>
+            </div>
+            <div class="beside">
+                <label for="user"></label><input type="text" th:field="*{names.username}" placeholder="USER NAME" id="user"/>
+                <label for="exp"></label><input type="text" th:field="*{obj.experience}" placeholder="EXPERIENCE" id="exp"/>
+            </div>
+            <label for="pass1"></label><input type="password" th:field="*{obj.password}" placeholder="PASSWORD" id="pass1"/>
+            <label for="pass2"></label><input type="password" placeholder="RE-PASSWORD" id="pass2"/>
+            <label for="email"></label><input type="email" th:field="*{obj.email}" placeholder="EMAIL ADDRESS" id="email" required>
+            <input type="submit" class="btn btn-primary" value="Submit" id="submit"/>
+            <input type="reset" class="btn btn-danger" value="Reset"/>
+        </form>
+    </div>
+</div>
+</body>
+</html>

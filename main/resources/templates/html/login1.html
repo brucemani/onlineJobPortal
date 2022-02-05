@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link type="text/css" rel="stylesheet" href="/static/css/login.css"/>
+    <link type="text/css" rel="stylesheet" href="/static/css/index.css">
+    <script src="../../static/js/login.js"></script>
+</head>
+<body>
+<div th:replace="~{html/fragements/normal::navigate}"></div>
+<div class="login-page">
+    <div class="form">
+        <form class="login-form" method="POST" action="login">
+            <label for="user"></label><input type="text" name="username" id="user" placeholder="Email"/>
+            <label for="password"></label><input type="password" name="password" id="password" placeholder="password"/>
+            <input type="submit" id="submit" value="Submit">
+            <p class="message">Not registered? <a th:href="@{/applicantReg}">Create an account</a></p>
+        </form>
+    </div>
+</div>
+</body>
+</html>

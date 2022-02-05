@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Job Register</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../../static/css/candidate.css"/>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+    <script type="text/javascript" src="../../static/js/comCheck.js"></script>
+    <link rel="stylesheet" href="/static/css/index.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body style="background-color: #008cba">
+<div th:replace="~{html/fragements/company::navigate}"></div>
+<div class="container" style="background-color: #008cba">
+    <div class="content2">
+        <h3 class="form-title text-center mt-3" style="color:lightgreen">Jobs Register</h3>
+        <form th:method="POST" th:action="@{/company/saveJob}" th:object="${jobs}">
+            <div class="beside">
+                <label for="cname"></label><input type="text" th:field="${jobs.CName}" placeholder="COMPANY" id="cname">
+            </div>
+            <div class="beside">
+                <label for="web"></label><input type="text" th:field="${jobs.CWeb}" placeholder="COMPANY WEB" id="web">
+            </div>
+            <div class="beside">
+                <label for="vac"></label><input type="text" th:field="${jobs.vacancy}" placeholder="VACANCY" id="vac">
+            </div>
+            <div class="beside">
+                <label for="sal"></label><input type="text" th:field="${jobs.salary}" placeholder="Salary" id="sal">
+            </div>
+            <div class="beside">
+                <label for="dec"></label><input type="text" th:field="${jobs.jobDesc}" placeholder="JOBS Des" id="dec">
+            </div>
+            <div class="beside">
+                <label for="loc"></label><input type="text" th:field="${jobs.location}" placeholder="LOCATION" id="loc">
+            </div>
+            <div class="beside">
+                <label for="email"></label><input type="email" th:field="${jobs.mail}" placeholder="MAIL" id="email">
+            </div>
+            <div class="beside">
+                <label for="post"></label><input type="text" th:field="${jobs.posting}" placeholder="POSTING" id="post">
+            </div>
+            <div class="beside">
+                <label class="mt-4">Date
+                    <input type="date" th:field="${jobs.ivDate}" pattern="yyyy-MM-dd" class="form-group" placeholder="DATE" id="date">
+                </label>
+            </div>
+             <div class="beside">
+                 <label for="place"></label><input type="text" th:field="${jobs.ivPlace}" placeholder="PLACE" id="place">
+            </div>
+            <div class="beside">
+                <label for="time"></label><input type="text" th:field="${jobs.ivTime}" placeholder="TIME" id="time">
+            </div>
+            <div class="beside">
+                <label for="skill"></label><input type="text" th:field="${jobs.skills}" placeholder="SKILLS" id="skill">
+            </div>
+            <div class="beside">
+                <label for="exp"></label><input type="text" th:field="${jobs.exp}" placeholder="EXPERIENCE" id="exp">
+            </div>
+
+            <input type="submit" class="btn btn-primary" value="Submit" id="submit"/>
+            <input type="reset" class="btn btn-danger" value="Reset"/>
+        </form>
+    </div>
+</div>
+</body>
+</html>

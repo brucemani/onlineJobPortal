@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Applicant Update</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/index.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .jumbotron{
+            padding-top: 50px;
+            margin-left: 100px;
+            margin-right: 100px;
+        }
+    </style>
+</head>
+<body>
+<div th:replace="~{html/fragements/admin::navigate}"></div>
+<div class="container">
+    <div class="jumbotron mt-4">
+        <form method="POST" th:object="${update}" th:action="@{/admin/saveUpdate}">
+        <table class="table table-bordered table-hover">
+            <thead class="table tableSubHeadingColor bg-info">
+                <th scope="col" colspan="2" class="text-center">Update Applicant</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="form-group">User Id</td>
+                    <td><label>
+                        <input type="text" class="form-control" th:field="${update.id}" readonly>
+                    </label></td>
+                </tr>
+                <tr>
+                    <td class="form-group">Gender</td>
+                    <td><label>
+                        <input type="text" class="form-control" th:field="${update.gender}" required>
+                    </label></td>
+                </tr>
+                <tr>
+                    <td class="form-group">Email</td>
+                    <td><label>
+                        <input type="email" class="form-control" th:field="${update.email}" required>
+                    </label></td>
+                </tr>
+                <tr>
+                    <td class="form-group">Phone</td>
+                    <td><label>
+                        <input type="text" class="form-control" th:field="${update.phone}">
+                    </label></td>
+                </tr>
+            <tr>
+                <td class="form-group float-right" colspan="2">
+                    <input type="submit" value="Submit" class="btn btn-primary"/>
+                    <input type="reset" value="Reset" class="btn btn-danger"/>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        </form>
+    </div>
+</div>
+</body>
+</html>

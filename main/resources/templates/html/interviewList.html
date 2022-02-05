@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>User Interview List</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/index.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<style>
+    .jumbotron{
+        margin-top: 30px;
+    }
+</style>
+<body style="background-color:lightsteelblue">
+<div th:replace="~{html/fragements/nav::navigate}"></div>
+<div class="container">
+    <div class="jumbotron">
+        <table class="table table-bordered table-hover">
+            <thead class="table tableSubHeadingColor bg-info">
+                <th scope="col">Company</th>
+                <th scope="col">Date</th>
+                <th scope="col">Location</th>
+                <th scope="col">Place</th>
+                <th scope="col">Time</th>
+            </thead>
+            <tbody>
+            <tr>
+                <td colspan="5" th:if="${lists.size()==0}">No Interviews</td>
+            </tr>
+            <tr th:each="list:${lists}">
+                <td th:text="${list.getCName()}"></td>
+                <td th:text="${list.getIvDate()}"></td>
+                <td th:text="${list.getLocation()}"></td>
+                <td th:text="${list.getIvPlace()}"></td>
+                <td th:text="${list.getIvTime()}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>

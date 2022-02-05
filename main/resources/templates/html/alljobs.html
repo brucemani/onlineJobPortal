@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All Jobs</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/index.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+</head>
+<body>
+<div th:replace="~{html/fragements/nav::navigate}"></div>
+<section id="jobs">
+    <div class="container">
+        <h3 class="text-center">Available Jobs</h3>
+        <div th:if="${jobList.size()==0}" class="text-center mt-4">
+            <span>No Jobs Available</span>
+        </div>
+        <div class="company-details" th:each="list:${jobList}">
+            <div class="job-updates">
+                <h4><b th:text="${list.getPosting()}"></b></h4>
+                <label th:text="${list.getCName()}"></label><br>
+                <i class="fa fa-briefcase"></i><span th:text="${list.getExp()}"></span><br>
+                <i class="fa fa-inr"></i><span th:text="${list.getSalary()}"></span><br>
+                <i class="fa fa-map-marker"></i><span th:text="${list.getLocation()}"></span><br>
+                <p>Skills <i class="fa fa-angle-double-right"></i><small th:text="${list.getSkills()}"></small></p>
+            </div>
+            <div class ="apply-btn">
+                <a th:href="@{/home/apply/{id}(id=${list.getId()})}" class="btn btn-primary">Apply</a>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/index.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+<div th:fragment="navigate">
+<section id="header">
+    <div class="menu-bar">
+        <div class="navbar navbar-expand-lg navbar-light">
+            <a class="navbar-brand" href="#">JOBS</a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mar">
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/home}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/home/alljobs}">ALL JOBS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/home/companies}">COMPANIES</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/home/interviewList}">INTERVIEWS</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ml-auto">
+<!--                   <li class="nav-item m" sec:authorize="isAuthenticated()"> <p sec:authentication="name"><label>Welcome:&nbsp; &nbsp;</label><a th:if="${user.getId()!=null}" th:href="@{/profile/{id}(id=${user.getId()})}" style="color:white;" th:text="${user.getNames().getUsername()}"></a></p></li>&nbsp;&nbsp;-->
+                    <li class="nav-item m1"><a th:href="@{/logout}" class="btn btn-danger btn-sm">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+</div>
+</body>
+</html>

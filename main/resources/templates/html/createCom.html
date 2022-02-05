@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Company Register</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../../static/css/candidate.css"/>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+    <script type="text/javascript" src="../../static/js/comCheck.js"></script>
+    <link rel="stylesheet" href="/static/css/index.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body style="background-color: #008cba">
+<div th:replace="~{html/fragements/normal::navigate}"></div>
+<div class="container" style="background-color: #008cba">
+    <div class="content1">
+        <h3 class="form-title text-center mt-3" style="color:lightgreen">Company Register</h3>
+        <form th:method="POST" th:action="@{/saveCom}" th:object="${obj}">
+            <div class="beside">
+                <label for="cname"></label><input type="text" th:field="${obj.CName}" placeholder="COMPANY" id="cname">
+            </div>
+            <div class="beside">
+                <label for="cmail"></label><input type="email" th:field="${obj.CMail}" placeholder="COMPANY MAIL" id="cmail" required>
+            </div>
+            <div class="beside">
+                <label for="pass1"></label><input type="password" th:field="${obj.password}" placeholder="PASSWORD" id="pass1">
+            </div>
+            <div class="beside">
+                <label for="pass2"></label><input type="password" placeholder="RE-PASSWORD" id="pass2">
+            </div>
+            <div class="beside">
+                <label for="location"></label><input type="text" th:field="${obj.CLocation}" placeholder="LOCATION" id="location">
+            </div>
+            <div class="beside">
+                <label for="web"></label><input type="text" th:field="${obj.CWeb}" placeholder="COMPANY WEBSITE" id="web">
+            </div>
+            <input type="submit" class="btn btn-primary" value="Submit" id="submit"/>
+            <input type="reset" class="btn btn-danger" value="Reset"/>
+        </form>
+    </div>
+</div>
+</body>
+</html>

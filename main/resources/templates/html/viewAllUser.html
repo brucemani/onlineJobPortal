@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>All Applicants</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/index.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+            background-color: lightsteelblue;
+        }
+        .jumbotron{
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+<div th:replace="~{html/fragements/admin::navigate}"></div>
+<div class="container">
+    <div class="jumbotron">
+        <table class="table table-bordered table-hover">
+            <thead class="table tableSubHeadingColor bg-info">
+            Total:&nbsp;<tr scope="col" colspan="5" style="align:left" th:text="${alluser.size()}"></tr>
+            <th scope="col">Sno</th>
+            <th scope="col">Name</th>
+            <th scope="col">Gender</th>
+            <th scope="col">Email</th>
+            <th scope="col">Actions</th>
+            </thead>
+            <tbody>
+            <tr th:if="${alluser.size()==0}">
+                <td colspan="5">No Users</td>
+            </tr>
+            <tr th:each="list:${alluser}">
+                <td th:text="${list.getId()}"></td>
+                <td th:text="${list.getNames().getUsername()}"></td>
+                <td th:text="${list.getGender()}"></td>
+                <td th:text="${list.getEmail()}"></td>
+                <td>
+                    <a th:href="@{/admin/edit/{id}(id=${list.getId()})}" class="btn btn-primary btn-sm">Update</a>
+                    <a th:href="@{/admin/delete/{id}(id=${list.getId()})}" class="btn btn-danger btn-sm">Delete</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/index.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+<div th:replace="~{html/fragements/nav::navigate}"></div>
+<div>
+<section class="header menu-bar">
+    <div class="banner text-center">
+        <h1>JOBS AROUND YOU</h1>
+        <img src="/static/images/banner-1.jpg" alt="no image"/>
+    </div>
+</section>
+<form th:method="POST" th:object="${jobs}" th:action="@{/availableJobs}">
+    <div class="search-job text-center">
+        <label>
+            <input type="text" th:field="${jobs.skills}" class="form-control" placeholder="skills">
+        </label>
+        <label>
+            <input type="text" th:field="${jobs.CName}" class="form-control" placeholder="company">
+        </label>
+        <label>
+            <input type="text" th:field="${jobs.location}" class="form-control" placeholder="location">
+        </label>
+        <input type="submit" class="btn btn-primary" value="find job">
+    </div>
+</form>
+
+<section id="recruiters">
+    <div class="container text-center">
+        <h3>TOP RECRUITERS</h3>
+        <div>
+            <img src="/static/images/logo-types-collection.jpg" alt="no image"/>
+        </div>
+    </div>
+</section>
+
+<section id="jobs">
+    <div class="container">
+        <h5>RECENT UPDATES</h5>
+        <div class="company-details">
+            <div class="job-updates">
+                <h4><b>seasones senior python Developer (Fresher)</b></h4>
+                <label>XYZ Solution Pvt. Ltd</label><br>
+                <i class="fa fa-briefcase"></i><span>0-1 yrs</span><br>
+                <i class="fa fa-inr"></i><span>3.50-4.00 lacs p.a </span><br>
+                <i class="fa fa-map-marker"></i><span>Bangalore</span><br>
+                <p>Skills <i class="fa fa-angle-double-right"></i><small>java</small><small>python</small>
+                    <small>HTML,CSS</small><small>.net</small></p>
+            </div>
+            <div class ="apply-btn">
+                <button type="button" class="btn btn-primary">Apply</button>
+            </div>
+        </div>
+    </div>
+</section>
+</div>
+</body>
+</html>

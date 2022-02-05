@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>List Of Company</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/index.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .jumbotron{
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body style="background-color:lightsteelblue">
+<div th:replace="~{html/fragements/nav::navigate}"></div>
+<div class="container">
+    <div class="jumbotron">
+        <table class="table table-bordered table-hover">
+            <thead class="table tableSubHeadingColor bg-info">
+            <th scope="col">List Of Company</th>
+            </thead>
+            <tbody>
+            <tr th:if="${comList.size()==0}">
+                <td colspan="5">No Interviews</td>
+            </tr>
+            <tr th:each="list:${comList}">
+                <td th:text="${list}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>
